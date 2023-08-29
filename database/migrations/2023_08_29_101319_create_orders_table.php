@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,6 +16,7 @@ return new class extends Migration
             $table->unsignedInteger("time_delivery");
             $table->foreignUlid("vendor_id")->references("id")->on("vendors");
             $table->foreignUlid("trip_id")->nullable()->references("id")->on("trips");
+            $table->foreignUlid("agent_id")->nullable()->references("id")->on("agents");
             $table->timestamps();
         });
     }

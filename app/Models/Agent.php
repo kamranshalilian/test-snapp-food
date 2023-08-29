@@ -9,6 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory, HasUlids;
+
     protected $guarded = ["id"];
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function delayReports()
+    {
+        return $this->hasMany(DelayReport::class);
+    }
 }
