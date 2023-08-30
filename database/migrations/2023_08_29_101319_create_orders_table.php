@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->ulid()->unique();
+            $table->ulid("id")->unique();
             $table->string("code");
             $table->unsignedInteger("time_delivery");
             $table->foreignUlid("vendor_id")->references("id")->on("vendors");

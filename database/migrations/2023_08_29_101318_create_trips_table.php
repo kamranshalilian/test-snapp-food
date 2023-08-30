@@ -12,10 +12,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('trips', function (Blueprint $table) {
-            $table->ulid()->unique();
+            $table->ulid("id")->unique();
             $table->string("name");
             $table->enum("status", TripStatusEnum::names());
-            $table->foreignUlid("order_id")->nullable()->references("id")->on("orders");
             $table->timestamps();
         });
     }

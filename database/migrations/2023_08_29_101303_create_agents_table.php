@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('agents', function (Blueprint $table) {
-            $table->ulid()->unique();
+            $table->ulid("id")->unique();
             $table->string("name");
             $table->string("code");
             $table->timestamps();
