@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DelayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("delay/report", [DelayController::class, "report"]);
+Route::post("delay/alert", [DelayController::class, "alert"]);
+Route::post("delay/assign", [DelayController::class, "assign"]);
+
