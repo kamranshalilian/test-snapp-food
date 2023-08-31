@@ -18,6 +18,7 @@ class VendorResource extends JsonResource
             "id" => $this->id,
             "time_delivery" => $this->time_delivery,
             "code" => $this->code,
+            "orders" => OrderResource::collection($this->orders)
         ];
     }
 }

@@ -18,6 +18,7 @@ class AgentResource extends JsonResource
             "id" => $this->id,
             "name" => $this->name,
             "code" => $this->code,
+            "orders" => OrderResource::collection($this->orders)
         ];
     }
 }
