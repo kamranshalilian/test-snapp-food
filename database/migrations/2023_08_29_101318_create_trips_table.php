@@ -14,7 +14,7 @@ return new class extends Migration {
         Schema::create('trips', function (Blueprint $table) {
             $table->ulid("id")->unique();
             $table->string("name");
-            $table->enum("status", TripStatusEnum::names());
+            $table->enum("status", TripStatusEnum::values())->default(TripStatusEnum::AT_VENDOR->value);
             $table->timestamps();
         });
     }

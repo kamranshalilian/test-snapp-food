@@ -14,11 +14,12 @@ class VendorResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+        $row = [
             "id" => $this->id,
-            "time_delivery" => $this->time_delivery,
             "code" => $this->code,
             "orders" => OrderResource::collection($this->orders)
         ];
+        $row["total_daley"] = $this->total_daley ?? 0;
+        return $row;
     }
 }

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         Vendor::factory(5)->create();
         Agent::factory(5)->create();
+        Trip::factory(20)->create();
         Order::factory(20)->create();
+
     }
 }
