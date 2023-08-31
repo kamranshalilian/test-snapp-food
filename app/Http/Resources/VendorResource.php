@@ -16,7 +16,7 @@ class VendorResource extends JsonResource
     {
         $row = [
             "id" => $this->id,
-            "code" => $this->code,
+            "name" => $this->name,
             "orders" => OrderResource::collection($this->orders)
         ];
         $row["total_daley"] = $this->total_daley ?? 0;

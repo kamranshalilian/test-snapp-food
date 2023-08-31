@@ -16,7 +16,7 @@ class OrderResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name,
+            "code" => $this->code,
             "time_delivery" => $this->time_delivery,
             "time_daley" => $this->time_daley,
             "delay" => DelayResource::collection($this->delayReports)
