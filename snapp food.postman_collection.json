@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "691123ed-a73e-4515-8d9d-d738f0a51391",
+		"name": "snapp food",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9884237"
+	},
+	"item": [
+		{
+			"name": "orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/orders",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/agents",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"agents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/vendors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/delay/report",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"delay",
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order_id\":\"01h9671dqrhx4axj1390p3h9xs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/delay/alert",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"delay",
+						"alert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"agent_id\":\"01h9671dq2va5n1ps9z1e9qt1n\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/delay/assign",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"delay",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "127.0.0.1"
+		}
+	]
+}

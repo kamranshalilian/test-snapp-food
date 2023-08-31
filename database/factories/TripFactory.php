@@ -21,7 +21,7 @@ class TripFactory extends Factory
     {
         return [
             "name" => fake()->name(),
-            "status" => fake()->randomElement(TripStatusEnum::names())
+            "status" => fake()->randomElement(TripStatusEnum::values())
         ];
     }
 }

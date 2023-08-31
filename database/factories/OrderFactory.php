@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Order;
+use App\Models\Trip;
 use App\Models\Vendor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +25,7 @@ class OrderFactory extends Factory
             "code" => fake()->numberBetween(10000, 99999),
             "time_delivery" => fake()->numberBetween(40, 80),
             "vendor_id" => fake()->randomElement(Vendor::pluck("id")->toArray()),
+            "trip_id" => fake()->randomElement(Trip::pluck("id")->toArray()),
         ];
     }
 }

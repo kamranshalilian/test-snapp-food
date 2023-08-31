@@ -15,7 +15,8 @@ class DelayResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "delay_time" => $this->delay_time
+            "id" => $this->id,
+            "status" => $this->status
         ];
     }
 }

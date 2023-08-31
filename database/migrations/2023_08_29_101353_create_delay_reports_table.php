@@ -1,5 +1,6 @@
 <?php
 
+use App\Enum\DelayStatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('delay_reports', function (Blueprint $table) {
             $table->ulid("id")->unique();
-            $table->integer("delay_time");
+            $table->enum("status", DelayStatusEnum::values())->default(DelayStatusEnum::PENDING->value);
             $table->foreignUlid("agent_id")->nullable()->references("id")->on("agents");
             $table->foreignUlid("order_id")->references("id")->on("orders");
             $table->foreignUlid("vendor_id")->references("id")->on("vendors");
