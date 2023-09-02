@@ -22,16 +22,20 @@ class DelayController extends Controller
         $sumQuery = Order::selectRaw('sum(time_daley)')
             ->whereColumn('vendor_id', 'vendors.id')
             ->getQuery();
+
         $vendor = Vendor::with(["orders" => function ($q) {
             $q->where("time_daley", ">", 0)
                 ->whereDate("created_at", ">=", Carbon::now()->subWeek()->format("Y-m-d"));
-        },])->select("vendors.*")->selectSub($sumQuery, "total_daley")
+        }, "delayReports"])->select("vendors.*")
+            ->selectSub($sumQuery, "total_daley")
             ->whereHas("orders", function (Builder $q) {
                 $q->where("time_daley", ">", 0)
                     ->whereDate("created_at", ">=", Carbon::now()->subWeek()->format("Y-m-d"));
-            })->orderByDesc("total_daley")
+            })->orWhereHas("delayReports", function (Builder $q) {
+                $q->whereDate("created_at", ">=", Carbon::now()->subWeek()->format("Y-m-d"));
+            })
+            ->orderByDesc("total_daley")
             ->get();
-
         return VendorResource::collection($vendor);
     }
 
